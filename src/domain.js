@@ -1,3 +1,4 @@
+import { productArt } from "./product-art.js";
 // 页面只保留展示转换；价格、库存、状态流转均由后端决定。
 export const yen = (n) =>
   new Intl.NumberFormat("ja-JP", {
@@ -60,8 +61,7 @@ export function product(p) {
     price: p.price.amount,
     taxRate: 0,
     rating: p.rating,
-    color: "#e6ece6",
-    art: "package",
+    ...productArt(p),
     variants: (
       p.variants || [{ stock: p.stockStatus === "in_stock" ? 1 : 0 }]
     ).map((v) => ({
@@ -75,6 +75,7 @@ export function order(o) {
     ...o,
     ...totals(o.totals || { grandTotal: o.grandTotal }),
     number: o.orderNumber,
+    ...productArt(o.firstProductName),
     createdAt: o.placedAt,
     paymentAttempts: (o.payments || []).map((p) => ({ ...p, at: p.createdAt })),
     lines: (o.items || []).map((l) => ({
@@ -82,8 +83,7 @@ export function order(o) {
       variantId: l.id,
       name: l.productName,
       total: l.lineTotal,
-      art: "package",
-      color: "#e6ece6",
+      ...productArt(l.productName),
     })),
     address: address(
       o.addresses?.find((a) => a.addressType === "shipping") || {},

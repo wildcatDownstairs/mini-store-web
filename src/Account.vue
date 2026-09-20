@@ -421,8 +421,8 @@ async function saveProfile() {
           </div>
         </div>
         <article v-for="l in order.lines" :key="l.variantId" class="cart-line">
-          <div class="cart-image" style="background: #e6ece6">
-            <ProductArt kind="package" />
+          <div class="cart-image" :style="{ background: l.color }">
+            <ProductArt :kind="l.art" />
           </div>
           <div class="cart-line-info">
             <h2>{{ l.name }}</h2>
@@ -583,8 +583,8 @@ async function saveProfile() {
           </header>
           <div class="order-card-body">
             <div class="order-thumbnails">
-              <div style="background: #e6ece6">
-                <ProductArt kind="package" />
+              <div :style="{ background: o.color }">
+                <ProductArt :kind="o.art" />
               </div>
             </div>
             <div>

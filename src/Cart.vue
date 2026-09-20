@@ -1,6 +1,7 @@
 <script setup>
 import { computed, ref, nextTick, onMounted } from "vue";
 import { state, act, refreshCart, quantity } from "./store";
+import { productArt } from "./product-art";
 import { yen, totals } from "./domain";
 import ProductArt from "./components/ProductArt.vue";
 import Icon from "./components/Icon.vue";
@@ -11,8 +12,7 @@ const lines = computed(() =>
       p: {
         name: x.productName,
         slug: x.slug,
-        color: "#e6ece6",
-        art: "package",
+        ...productArt(x),
       },
       v: { name: x.variantName, price: x.unitPrice },
     })),

@@ -42,3 +42,7 @@ pnpm build
 真实商品图片/支付渠道/物流服务可在后续接入，本项目目前不包含这些外部服务。
 
 配套仓库：[后端](https://github.com/wildcatDownstairs/mini-store-api) · [后台](https://github.com/wildcatDownstairs/mini-store-admin) · [商城](https://github.com/wildcatDownstairs/mini-store-web)。
+
+## 商品类型占位图
+
+`src/product-art.js` 统一识别商品名称、分类和订单名称快照；`src/components/ProductArt.vue` 用现有 SVG 风格绘制。当前 24 种种子商品类型使用 23 种插画（两种笔记本共用一张），已只读核对 5,000 件商品全部匹配。首页、列表、收藏、详情、购物袋、订单列表和详情共用映射。未知名称优先按分类回退，完全未知才显示通用包装箱；这不会更新数据库图片记录。新增类型时补充匹配规则、SVG 分支和 `tests/product-art.test.js`。
