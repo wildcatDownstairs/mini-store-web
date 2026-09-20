@@ -3,10 +3,20 @@ import ProductArt from "./ProductArt.vue";
 import Icon from "./Icon.vue";
 import { yen } from "../domain";
 import { state, favorite } from "../store";
-defineProps({ product: Object });
+defineProps({ product: Object, loading: Boolean });
 </script>
 <template>
-  <article class="product-card">
+  <!-- 使用真实卡片的容器和排版类，骨架随相同断点缩放。 -->
+  <article v-if="loading" class="product-card skeleton-card" aria-hidden="true">
+    <div class="product-visual skeleton-block"></div>
+    <div class="card-meta">
+      <span class="skeleton-block skeleton-brand">&nbsp;</span>
+      <span class="skeleton-block skeleton-rating">&nbsp;</span>
+    </div>
+    <div class="product-name skeleton-block skeleton-name">&nbsp;</div>
+    <div class="card-price skeleton-block skeleton-price">&nbsp;</div>
+  </article>
+  <article v-else class="product-card">
     <div class="product-visual" :style="{ background: product.color }">
       <RouterLink :to="'/products/' + product.slug" :aria-label="product.name"
         ><ProductArt :kind="product.art" /></RouterLink

@@ -76,4 +76,6 @@ OrderDetailDto 以 publicId 定位，并返回 orderNumber/status/placedAt、商
 
 订单查询使用 orders(customer_id,created_at DESC,id DESC)；商品 slug、SKU 唯一索引；库存按 SKU 汇总可售量。后端预占应按确定的仓库/variant 顺序加锁，事务内检查价格、库存与优惠，写入快照和流水。不能把跨仓总可售量当作某一仓可直接发货数量。
 
-认证使用服务端会话或规范 token，Cookie 方案需 CSRF 防护。所有 /me 路由从登录主体提取 customer_id，禁止接受客户端 customerId 作为授权依据。管理端独立授权。错误统一 ProblemDetails：400 校验、401 未登录、404 不存在/不归属、409 库存/报价/状态冲突、422 优惠不适用；前台保留用户输入并给出可恢复路径。
+认证使用服务端会话或规范 token，Cookie 方案需 CSRF 防护。所有 /me 路由从登录主体提取 customer_id，禁止接受客户端 customerId 作为授权依据。管理端独立授权。错误统一 `{success:false,code,msg,data:null}`（无 `message`）：400 校验、401 未登录、404 不存在/不归属、409 库存/报价/状态冲突、422 优惠不适用；前台保留用户输入并给出可恢复路径。
+
+当前实际接口由后端 OpenAPI 定义。成功响应统一为 `{success:true,code,msg,data}`，HTTP 入口只返回 `data` 给页面；分页读取 `records/current/size/total/pages` 等公司 TableModel 字段。请求保留 `page/pageSize`，上限 100；无业务数据的写入返回 200、`data:null`。订单与购物袋的 `items` 仍为业务明细字段。

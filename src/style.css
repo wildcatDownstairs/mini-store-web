@@ -937,7 +937,8 @@ footer {
   color: #718579;
   letter-spacing: 0.7px;
 }
-.product-info h1 {
+.product-info h1,
+.product-info .skeleton-title {
   font-size: 29px;
   margin: 16px 0 12px;
   letter-spacing: 0;
@@ -2174,7 +2175,8 @@ details p {
   .product-info {
     padding-top: 0;
   }
-  .product-info h1 {
+  .product-info h1,
+.product-info .skeleton-title {
     font-size: 25px;
   }
   .product-info > p {

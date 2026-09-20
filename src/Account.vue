@@ -72,7 +72,7 @@ async function load() {
           }),
       );
       if (rev === revision) {
-        orders.value = result.items.map(adapt);
+        orders.value = result.records.map(adapt);
         total.value = result.total;
       }
     } else {

@@ -881,3 +881,73 @@ details[open] > :not(summary) {
   width: max-content;
   min-width: 100%;
 }
+
+/* 骨架只画占位内容，尺寸、网格和间距沿用实际商品 UI。 */
+.skeleton-block {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  border-radius: 4px;
+  background: #e8ede8;
+  color: transparent;
+  pointer-events: none;
+}
+.skeleton-block::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, #ffffff85, transparent);
+  transform: translateX(-100%);
+  animation: skeleton-shimmer 1.6s linear infinite;
+}
+@keyframes skeleton-shimmer {
+  to {
+    transform: translateX(100%);
+  }
+}
+.skeleton-brand {
+  width: 38%;
+}
+.skeleton-rating {
+  width: 19%;
+}
+.skeleton-price {
+  width: 42%;
+}
+.skeleton-description {
+  width: 58%;
+  margin-top: 8px;
+}
+.skeleton-count {
+  width: 72px;
+}
+.skeleton-breadcrumb {
+  width: min(65%, 380px);
+}
+.skeleton-card .skeleton-name {
+  width: 90%;
+}
+.skeleton-detail .brand {
+  height: 18px;
+}
+.skeleton-detail .skeleton-block {
+  opacity: 1;
+  border-color: transparent;
+}
+.skeleton-detail .buy-row .primary {
+  background: #e8ede8;
+}
+.skeleton-detail .text-button {
+  margin-top: 12px;
+}
+@media (max-width: 760px) {
+  .skeleton-card .skeleton-name {
+    min-height: 3.3em;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .skeleton-block::before {
+    animation: none;
+    display: none;
+  }
+}

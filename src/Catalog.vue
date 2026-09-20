@@ -89,7 +89,7 @@ async function load(scrollToResults = false) {
             inStock: inStock.value,
           }),
       );
-      r = { ...data, items: data.items.map(adapt) };
+      r = { ...data, items: data.records.map(adapt) };
     }
     if (rev === revision) {
       shown.value = r.items;
@@ -161,7 +161,15 @@ function reset() {
           }}
         </p>
       </div>
-      <span role="status" aria-live="polite">{{ total }} 件好物</span>
+      <span role="status" aria-live="polite">
+        <span
+          v-if="busy"
+          class="skeleton-block skeleton-count"
+          aria-hidden="true"
+        >&nbsp;</span>
+        <span v-if="busy" class="visually-hidden">正在加载商品</span>
+        <template v-else>{{ total }} 件好物</template>
+      </span>
     </div>
     <div
       class="catalog-layout"
@@ -222,7 +230,14 @@ function reset() {
             ]"
           />
         </div>
-        <p v-if="busy" role="status">正在寻找好物…</p>
+        <div
+          v-if="busy"
+          class="product-grid catalog-grid"
+          aria-busy="true"
+          aria-label="商品加载中"
+        >
+          <ProductCard v-for="n in 8" :key="n" loading />
+        </div>
         <div v-else-if="error" role="alert" class="notice">
           {{ error }} <button class="text-button" @click="load">重试</button>
         </div>

@@ -10,7 +10,7 @@ const products = ref([]),
   error = ref("");
 async function load() {
   try {
-    products.value = (await api("/api/store/products?pageSize=4")).items.map(
+    products.value = (await api("/api/store/products?pageSize=4")).records.map(
       product,
     );
     error.value = "";

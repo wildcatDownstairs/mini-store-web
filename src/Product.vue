@@ -45,7 +45,7 @@ async function load() {
     if (current !== rev) return;
     product.value = p;
     await loadReviews();
-    products.value = (await api("/api/store/products?pageSize=4")).items.map(
+    products.value = (await api("/api/store/products?pageSize=4")).records.map(
       adapt,
     );
   } catch (e) {
@@ -62,7 +62,7 @@ async function loadReviews() {
       `/api/store/products/${id}/reviews?pageSize=6&page=${reviewPage.value}`,
     );
     if (product.value?.id === id) {
-      reviews.value = r.items;
+      reviews.value = r.records;
       reviewTotal.value = r.total;
     }
   } catch (e) {
@@ -295,9 +295,73 @@ async function add() {
       </div>
     </section>
   </div>
+  <div
+    v-else-if="busy"
+    class="wrap page"
+    aria-busy="true"
+    aria-label="商品详情加载中"
+  >
+    <p class="visually-hidden" role="status">正在加载商品详情</p>
+    <div class="breadcrumb" aria-hidden="true">
+      <span class="skeleton-block skeleton-breadcrumb">&nbsp;</span>
+    </div>
+    <div class="product-detail skeleton-detail" aria-hidden="true">
+      <div>
+        <div class="detail-art skeleton-block"></div>
+        <div class="thumbnails">
+          <button
+            v-for="n in 2"
+            :key="n"
+            class="skeleton-block"
+            disabled
+            tabindex="-1"
+          ></button>
+        </div>
+      </div>
+      <div class="product-info">
+        <span class="brand skeleton-block skeleton-brand">&nbsp;</span>
+        <div class="skeleton-title skeleton-block">&nbsp;<br />&nbsp;</div>
+        <p class="skeleton-block">&nbsp;<br />&nbsp;<br />&nbsp;</p>
+        <span class="detail-rating skeleton-block skeleton-price">&nbsp;</span>
+        <div class="detail-price">
+          <span class="skeleton-block skeleton-price">&nbsp;</span>
+          <small class="skeleton-block skeleton-description">&nbsp;</small>
+        </div>
+        <fieldset>
+          <legend class="skeleton-block skeleton-brand">&nbsp;</legend>
+          <div class="variant-options">
+            <button
+              v-for="n in 2"
+              :key="n"
+              class="skeleton-block"
+              disabled
+              tabindex="-1"
+            >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
+          </div>
+        </fieldset>
+        <div class="stock skeleton-block skeleton-price">&nbsp;</div>
+        <div class="buy-row">
+          <div class="quantity skeleton-block"></div>
+          <button class="button primary skeleton-block" disabled tabindex="-1">
+            &nbsp;
+          </button>
+          <button
+            class="icon-button outline skeleton-block"
+            disabled
+            tabindex="-1"
+          ></button>
+        </div>
+        <span class="text-button skeleton-block skeleton-price">&nbsp;</span>
+        <div class="detail-service">
+          <p class="skeleton-block">&nbsp;</p>
+          <p class="skeleton-block">&nbsp;</p>
+        </div>
+      </div>
+    </div>
+  </div>
   <div v-else class="wrap empty">
-    <h1>{{ busy ? "正在加载好物…" : error || "该商品暂无可售规格" }}</h1>
-    <button v-if="!busy" class="text-button" @click="load">重新加载</button>
+    <h1>{{ error || "该商品暂无可售规格" }}</h1>
+    <button class="text-button" @click="load">重新加载</button>
     <RouterLink to="/products" class="button primary">返回全部好物</RouterLink>
   </div>
 </template>
