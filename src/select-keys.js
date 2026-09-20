@@ -19,3 +19,9 @@ export function optionIndex(options, index, key, search = "") {
   }
   return index;
 }
+
+// 返回原始选项对象，过滤后的下标仍能正确对应其 value。
+export function filterOptions(options, query) {
+  const term = query.trim().toLocaleLowerCase();
+  return term ? options.filter((option) => option.label.toLocaleLowerCase().includes(term)) : options;
+}

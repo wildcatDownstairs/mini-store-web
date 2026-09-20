@@ -8,7 +8,7 @@ import {
   onBeforeUnmount,
   watch,
 } from "vue";
-import { optionIndex } from "../select-keys";
+import { optionIndex, filterOptions } from "../select-keys";
 import Icon from "./Icon.vue";
 const props = defineProps({
   modelValue: [String, Number],
@@ -16,6 +16,7 @@ const props = defineProps({
   label: { type: String, required: true },
   inline: Boolean,
   hideLabel: Boolean,
+  searchable: Boolean,
 });
 const emit = defineEmits(["update:modelValue"]);
 const id = useId(),
@@ -25,7 +26,12 @@ const id = useId(),
   open = ref(false),
   active = ref(0),
   above = ref(false),
-  maxHeight = ref(280);
+  maxHeight = ref(280),
+  query = ref(""),
+  searchInput = ref(null);
+const choices = computed(() =>
+  filterOptions(props.options, props.searchable ? query.value : ""),
+);
 const selected = computed(() =>
   props.options.findIndex((o) => o.value === props.modelValue),
 );
@@ -45,16 +51,18 @@ function place() {
 async function reveal() {
   if (!props.options.length) return;
   place();
+  query.value = "";
   active.value = Math.max(0, selected.value);
   open.value = true;
   await nextTick();
+  if (props.searchable) searchInput.value?.focus({ preventScroll: true });
   scrollActive();
 }
 function scrollActive() {
   list.value?.children[active.value]?.scrollIntoView({ block: "nearest" });
 }
 function choose(index) {
-  const option = props.options[index];
+  const option = choices.value[index];
   if (!option) return;
   emit("update:modelValue", option.value);
   open.value = false;
@@ -82,8 +90,8 @@ function onKey(event) {
     if (!open.value) {
       reveal();
       if (key === "Home" || key === "End")
-        active.value = optionIndex(props.options, active.value, key);
-    } else active.value = optionIndex(props.options, active.value, key);
+        active.value = optionIndex(choices.value, active.value, key);
+    } else active.value = optionIndex(choices.value, active.value, key);
     nextTick(scrollActive);
     return;
   }
@@ -93,10 +101,31 @@ function onKey(event) {
     const now = Date.now();
     search = now - lastKey < 700 ? search + key : key;
     lastKey = now;
-    active.value = optionIndex(props.options, active.value, "", search);
+    active.value = optionIndex(choices.value, active.value, "", search);
     nextTick(scrollActive);
   }
 }
+// 搜索框内空格、Home/End 和 Tab 保留原生编辑行为，方向键选择结果。
+function onSearchKey(event) {
+  if (event.isComposing) return;
+  if (event.key === "Escape") {
+    event.preventDefault();
+    event.stopPropagation();
+    open.value = false;
+    trigger.value.focus({ preventScroll: true });
+  } else if (event.key === "Enter") {
+    event.preventDefault();
+    choose(active.value);
+  } else if (["ArrowDown", "ArrowUp"].includes(event.key)) {
+    event.preventDefault();
+    active.value = optionIndex(choices.value, active.value, event.key);
+    nextTick(scrollActive);
+  }
+}
+watch(query, () => {
+  active.value = 0;
+  nextTick(scrollActive);
+});
 function outside(e) {
   if (!root.value?.contains(e.target)) open.value = false;
 }
@@ -146,41 +175,68 @@ onBeforeUnmount(() => {
         aria-haspopup="listbox"
         :aria-expanded="open"
         :aria-controls="id + '-list'"
-        :aria-activedescendant="open ? id + '-option-' + active : undefined"
+        :aria-activedescendant="
+          open && !searchable && choices.length
+            ? id + '-option-' + active
+            : undefined
+        "
         @click="open ? (open = false) : reveal()"
         @keydown="onKey"
       >
         <span>{{ text }}</span
         ><Icon name="arrow" /></button
-      ><Transition name="select-menu"
-        ><ul
-          v-if="open"
-          :id="id + '-list'"
-          ref="list"
-          role="listbox"
-          :aria-labelledby="id + '-label'"
-          class="select-menu"
-          :class="{ 'opens-above': above }"
-          :style="{ maxHeight: maxHeight + 'px' }"
-        >
-          <li
-            v-for="(option, i) in options"
-            :id="id + '-option-' + i"
-            :key="option.value"
-            role="option"
-            :aria-selected="modelValue === option.value"
-            :class="{
-              'is-highlighted': active === i,
-              'is-selected': modelValue === option.value,
+      ><Transition name="select-menu">
+        <div v-if="open" class="select-popover" :class="{ 'opens-above': above }">
+          <div v-if="searchable" class="select-search">
+            <input
+              ref="searchInput"
+              v-model="query"
+              type="search"
+              :aria-label="'搜索' + label"
+              :placeholder="'输入' + label + '名称'"
+              role="combobox"
+              aria-autocomplete="list"
+              aria-expanded="true"
+              :aria-controls="id + '-list'"
+              :aria-activedescendant="
+                choices.length ? id + '-option-' + active : undefined
+              "
+              @keydown="onSearchKey"
+            />
+          </div>
+          <p v-if="!choices.length" class="select-no-results" role="status">
+            没有匹配的{{ label }}
+          </p>
+          <ul
+            :id="id + '-list'"
+            ref="list"
+            role="listbox"
+            :aria-labelledby="id + '-label'"
+            class="select-menu"
+            :style="{
+              maxHeight: Math.max(72, maxHeight - (searchable ? 64 : 0)) + 'px',
             }"
-            @pointermove="active = i"
-            @pointerdown.prevent
-            @click="choose(i)"
           >
-            <span>{{ option.label }}</span
-            ><Icon v-if="modelValue === option.value" name="check" />
-          </li></ul
-      ></Transition>
+            <li
+              v-for="(option, i) in choices"
+              :id="id + '-option-' + i"
+              :key="option.value"
+              role="option"
+              :aria-selected="modelValue === option.value"
+              :class="{
+                'is-highlighted': active === i,
+                'is-selected': modelValue === option.value,
+              }"
+              @pointermove="active = i"
+              @pointerdown.prevent
+              @click="choose(i)"
+            >
+              <span>{{ option.label }}</span>
+              <Icon v-if="modelValue === option.value" name="check" />
+            </li>
+          </ul>
+        </div>
+      </Transition>
     </div>
   </div>
 </template>

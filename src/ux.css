@@ -13,6 +13,19 @@ textarea:focus-visible {
   outline: 2px solid #759789;
   outline-offset: 1px;
 }
+/* 搜索图标、输入框和按钮共同组成一个控件，焦点边框跟随整个容器。 */
+.search:focus-within {
+  outline: 2px solid #759789;
+  outline-offset: 2px;
+}
+.search input:focus-visible {
+  outline: none;
+}
+/* 按钮保留独立的键盘焦点，Tab 切换时仍能辨认当前操作。 */
+.search button:focus-visible {
+  outline-offset: 2px;
+  border-radius: 2px;
+}
 .button,
 .icon-button,
 .quantity button,
@@ -487,4 +500,384 @@ details[open] > :not(summary) {
     transition: none !important;
     scroll-behavior: auto !important;
   }
+}
+
+/* 表单布局由共用规则负责，登录、资料和弹窗使用同一套尺寸。 */
+.form-grid > *, .login-panel > *, .page-intro > div,
+.catalog-layout > *, .product-detail > *, .account-layout > *,
+.section-heading > div, .order-card-body > div {
+  min-width: 0;
+}
+.form-grid label {
+  display: block;
+  line-height: 1.6;
+}
+.form-grid label input:not([type="checkbox"]), .form-grid label textarea {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  margin-top: 7px;
+}
+.modal .form-grid label {
+  margin-bottom: 0;
+}
+.form-grid .button {
+  align-self: end;
+}
+.page-intro h1, .product-info h1, .product-name, .cart-line-info,
+.order-card, .address-card, .shipping-box, .account-layout p {
+  overflow-wrap: anywhere;
+}
+.page-intro > span {
+  flex-shrink: 0;
+}
+.variant-options {
+  flex-wrap: wrap;
+}
+.pagination {
+  align-items: center;
+  flex-wrap: wrap;
+}
+.pagination-status {
+  display: none;
+}
+.list-toolbar:focus {
+  outline: none;
+}
+.list-toolbar {
+  scroll-margin-top: 20px;
+}
+/* 可搜索的品牌菜单仍然沿用原有选择器，不引入新的组件库。 */
+.select-popover {
+  position: absolute;
+  top: calc(100% + 7px);
+  left: 0;
+  width: max(100%, 230px);
+  max-width: calc(100vw - 36px);
+  background: #fff;
+  border: 1px solid #dce4db;
+  border-radius: 9px;
+  box-shadow: 0 12px 28px #263f3d18;
+  z-index: 30;
+}
+.select-popover.opens-above {
+  top: auto;
+  bottom: calc(100% + 7px);
+}
+.select-popover .select-menu {
+  position: static;
+  width: 100%;
+  min-width: 0;
+  max-width: none;
+  margin: 0;
+  border: 0;
+  box-shadow: none;
+}
+.select-search {
+  padding: 8px;
+}
+.select-search input {
+  width: 100%;
+  min-width: 0;
+  font-size: 16px;
+}
+.select-no-results {
+  padding: 12px;
+  margin: 0;
+  font-size: 14px;
+}
+.select-popover .select-menu > li {
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+@media (min-width: 761px) and (max-width: 1024px) {
+  .header-main {
+    gap: 20px;
+  }
+  .nav-note {
+    display: none;
+  }
+  .hero h1 {
+    font-size: 32px;
+    letter-spacing: 0;
+  }
+  .category-grid, .product-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .catalog-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .checkout-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .order-summary {
+    position: static;
+  }
+}
+@media (max-width: 1024px) {
+  .buy-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 46px;
+  }
+  .buy-row .primary {
+    grid-row: 2;
+    grid-column: 1 / -1;
+    min-height: 48px;
+  }
+  .buy-row .outline {
+    grid-row: 1;
+    grid-column: 2;
+  }
+  .buy-row .quantity, .cart-line .quantity {
+    width: 132px;
+    height: 46px;
+  }
+  .quantity button {
+    width: 44px;
+    flex-shrink: 0;
+  }
+  input:not([type="checkbox"]):not([type="radio"]), textarea {
+    font-size: 16px;
+  }
+  .search input {
+    font-size: 16px;
+  }
+  .search button {
+    min-height: 44px;
+    min-width: 44px;
+    font-size: 14px;
+  }
+  .icon-button, .header-actions .icon-button, .favorite {
+    width: 44px;
+    height: 44px;
+  }
+  .variant-options button, .text-button {
+    min-height: 44px;
+  }
+  .select-trigger, .select-menu > li {
+    min-height: 44px;
+    font-size: 14px;
+  }
+}
+@media (max-width: 760px) {
+  .header-main {
+    height: 132px;
+  }
+  .header-actions {
+    gap: 2px;
+  }
+  .logo {
+    gap: 7px;
+  }
+  .logo small {
+    font-size: 10px;
+  }
+  .search {
+    height: 46px;
+  }
+  .search input {
+    padding: 10px 8px;
+  }
+  .navigation {
+    height: 48px;
+    font-size: 14px;
+    gap: 24px;
+  }
+  .announcement {
+    font-size: 12px;
+  }
+  .page-intro {
+    gap: 12px;
+  }
+  .page-intro h1 {
+    font-size: 26px;
+  }
+  .page-intro > span {
+    font-size: 12px;
+  }
+  .page-intro p, .section-heading p, .hero p, .editorial p,
+  .welcome-strip p, .product-info > p, .review p, .help-page p {
+    font-size: 14px;
+  }
+  .hero h1 {
+    font-size: clamp(27px, 8vw, 35px);
+    letter-spacing: 0;
+  }
+  .category-tile {
+    height: 145px;
+  }
+  .category-tile span {
+    font-size: 12px;
+  }
+  .product-name {
+    font-size: 14px;
+    line-height: 1.65;
+  }
+  .card-meta {
+    font-size: 12px;
+    flex-wrap: wrap;
+    gap: 4px 8px;
+    color: #56665c;
+  }
+  .card-price {
+    font-size: 16px;
+  }
+  .card-price small {
+    font-size: 12px;
+    display: inline-block;
+    margin-left: 4px;
+  }
+  .product-tag {
+    font-size: 12px;
+    max-width: calc(100% - 60px);
+  }
+  .favorite {
+    top: 4px;
+    right: 4px;
+  }
+  .favorite svg {
+    width: 20px;
+    height: 20px;
+  }
+  .filters {
+    gap: 8px;
+  }
+  .filters > button:not(.text-button) {
+    min-height: 44px;
+    font-size: 14px;
+    padding: 10px;
+  }
+  .filters .checkbox {
+    min-height: 44px;
+    font-size: 14px;
+    margin: 0;
+  }
+  .filters input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+  }
+  .filters > .text-button {
+    font-size: 14px;
+  }
+  .filters > .store-select {
+    width: 100%;
+    margin: 0;
+  }
+  .filters .store-select > label {
+    font-size: 14px;
+  }
+  .filters .store-select .select-anchor {
+    min-width: 0;
+  }
+  .select-popover {
+    width: 100%;
+  }
+  .list-toolbar {
+    flex-wrap: wrap;
+    gap: 12px;
+    font-size: 14px;
+  }
+  .select-inline {
+    margin-left: auto;
+  }
+  .select-inline > label {
+    font-size: 12px;
+  }
+  .select-inline .select-anchor {
+    width: 165px;
+  }
+  .pagination {
+    gap: 8px;
+    flex-wrap: nowrap;
+  }
+  .pagination .page-number {
+    display: none;
+  }
+  .pagination-status {
+    display: block;
+    text-align: center;
+    flex: 1;
+    font-size: 14px;
+  }
+  .form-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 18px;
+  }
+  .form-grid .span-two {
+    grid-column: auto;
+  }
+  .form-grid label, .modal label {
+    font-size: 14px;
+  }
+  .login-panel > div:last-child {
+    padding: 28px 20px;
+  }
+  .login-panel p {
+    font-size: 14px;
+  }
+  .button, .buy-row .button {
+    font-size: 14px;
+    min-height: 46px;
+  }
+  .cart-line {
+    display: grid;
+    grid-template-columns: 72px minmax(0, 1fr);
+  }
+  .cart-image {
+    width: 72px;
+    height: 72px;
+  }
+  .cart-line h2 {
+    font-size: 14px;
+  }
+  .cart-line p, .cart-line-info > small {
+    font-size: 12px;
+  }
+  .line-end {
+    grid-column: 1 / -1;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .cart-line > strong {
+    grid-column: 2;
+  }
+  .order-card-body h2 {
+    font-size: 14px;
+  }
+  .account-nav > a, .account-nav button {
+    min-height: 44px;
+    font-size: 14px;
+  }
+  .choice strong {
+    font-size: 14px;
+  }
+  .choice span span, .choice strong small {
+    font-size: 12px;
+  }
+  .modal {
+    max-height: 88dvh;
+    padding: 20px;
+    overscroll-behavior: contain;
+  }
+  .motion-dialog input, .motion-dialog textarea {
+    font-size: 16px;
+  }
+  .toast {
+    bottom: max(16px, env(safe-area-inset-bottom));
+  }
+}
+
+.catalog-empty-favorites {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.select-inline .select-popover {
+  left: auto;
+  right: 0;
+}
+.select-popover:not(:has(.select-search)) {
+  width: max-content;
+  min-width: 100%;
 }

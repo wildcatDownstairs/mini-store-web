@@ -15,6 +15,10 @@ import Icon from "./components/Icon.vue";
 import StoreSelect from "./components/StoreSelect.vue";
 import MotionDialog from "./components/MotionDialog.vue";
 import OrderTotals from "./components/OrderTotals.vue";
+// 公开的本地体验凭据；生产构建不预填，真实用户密码不要写进前端。
+const demoLogin = import.meta.env.DEV
+  ? { email: "demo@mini-store.example", password: "MiniStoreDemo2026!" }
+  : { email: "", password: "" };
 const route = useRoute(),
   router = useRouter(),
   filter = ref("all"),
@@ -35,11 +39,19 @@ const route = useRoute(),
   loading = ref(false),
   loadError = ref(""),
   register = ref(false),
-  credentials = ref({ email: "", password: "", firstName: "", lastName: "" }),
+  credentials = ref({ ...demoLogin, firstName: "", lastName: "" }),
   profile = ref({});
 const section = computed(() => route.params.section || "orders"),
   isOrder = computed(() => !!route.params.id),
   help = computed(() => section.value === "help");
+// 注册不复用体验账号；切回登录时恢复本地预填。
+watch(register, (isRegister) => {
+  credentials.value = {
+    ...(isRegister ? { email: "", password: "" } : demoLogin),
+    firstName: "",
+    lastName: "",
+  };
+});
 let revision = 0;
 async function load() {
   const rev = ++revision;

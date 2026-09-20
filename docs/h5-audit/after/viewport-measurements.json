@@ -1,0 +1,277 @@
+[
+  {
+    "page": "product",
+    "scrollWidth": 320,
+    "width": 320
+  },
+  {
+    "page": "product",
+    "scrollWidth": 375,
+    "width": 375
+  },
+  {
+    "page": "product",
+    "scrollWidth": 390,
+    "width": 390
+  },
+  {
+    "page": "product",
+    "scrollWidth": 430,
+    "width": 430
+  },
+  {
+    "page": "product",
+    "scrollWidth": 760,
+    "width": 760
+  },
+  {
+    "page": "product",
+    "scrollWidth": 761,
+    "width": 761
+  },
+  {
+    "page": "product",
+    "scrollWidth": 768,
+    "width": 768
+  },
+  {
+    "page": "product",
+    "scrollWidth": 820,
+    "width": 820
+  },
+  {
+    "page": "product",
+    "scrollWidth": 1024,
+    "width": 1024
+  },
+  {
+    "page": "product",
+    "scrollWidth": 1440,
+    "width": 1440
+  },
+  {
+    "page": "home",
+    "scrollWidth": 320,
+    "width": 320
+  },
+  {
+    "page": "home",
+    "scrollWidth": 375,
+    "width": 375
+  },
+  {
+    "page": "home",
+    "scrollWidth": 390,
+    "width": 390
+  },
+  {
+    "page": "home",
+    "scrollWidth": 430,
+    "width": 430
+  },
+  {
+    "page": "home",
+    "scrollWidth": 760,
+    "width": 760
+  },
+  {
+    "page": "home",
+    "scrollWidth": 761,
+    "width": 761
+  },
+  {
+    "page": "home",
+    "scrollWidth": 768,
+    "width": 768
+  },
+  {
+    "page": "home",
+    "scrollWidth": 820,
+    "width": 820
+  },
+  {
+    "page": "home",
+    "scrollWidth": 1024,
+    "width": 1024
+  },
+  {
+    "page": "home",
+    "scrollWidth": 1440,
+    "width": 1440
+  },
+  {
+    "page": "catalog",
+    "scrollWidth": 320,
+    "width": 320
+  },
+  {
+    "page": "catalog",
+    "scrollWidth": 375,
+    "width": 375
+  },
+  {
+    "page": "catalog",
+    "scrollWidth": 390,
+    "width": 390
+  },
+  {
+    "page": "catalog",
+    "scrollWidth": 430,
+    "width": 430
+  },
+  {
+    "page": "catalog",
+    "scrollWidth": 760,
+    "width": 760
+  },
+  {
+    "page": "catalog",
+    "scrollWidth": 761,
+    "width": 761
+  },
+  {
+    "page": "catalog",
+    "scrollWidth": 768,
+    "width": 768
+  },
+  {
+    "page": "catalog",
+    "scrollWidth": 820,
+    "width": 820
+  },
+  {
+    "page": "catalog",
+    "scrollWidth": 1024,
+    "width": 1024
+  },
+  {
+    "page": "catalog",
+    "scrollWidth": 1440,
+    "width": 1440
+  },
+  {
+    "page": "/favorites",
+    "scrollWidth": 320,
+    "width": 320
+  },
+  {
+    "page": "/favorites",
+    "scrollWidth": 390,
+    "width": 390
+  },
+  {
+    "page": "/favorites",
+    "scrollWidth": 768,
+    "width": 768
+  },
+  {
+    "page": "/favorites",
+    "scrollWidth": 1024,
+    "width": 1024
+  },
+  {
+    "page": "/favorites",
+    "scrollWidth": 1440,
+    "width": 1440
+  },
+  {
+    "page": "/cart",
+    "scrollWidth": 320,
+    "width": 320
+  },
+  {
+    "page": "/cart",
+    "scrollWidth": 390,
+    "width": 390
+  },
+  {
+    "page": "/cart",
+    "scrollWidth": 768,
+    "width": 768
+  },
+  {
+    "page": "/cart",
+    "scrollWidth": 1024,
+    "width": 1024
+  },
+  {
+    "page": "/cart",
+    "scrollWidth": 1440,
+    "width": 1440
+  },
+  {
+    "page": "/checkout",
+    "scrollWidth": 320,
+    "width": 320
+  },
+  {
+    "page": "/checkout",
+    "scrollWidth": 390,
+    "width": 390
+  },
+  {
+    "page": "/checkout",
+    "scrollWidth": 768,
+    "width": 768
+  },
+  {
+    "page": "/checkout",
+    "scrollWidth": 1024,
+    "width": 1024
+  },
+  {
+    "page": "/checkout",
+    "scrollWidth": 1440,
+    "width": 1440
+  },
+  {
+    "page": "/account/help",
+    "scrollWidth": 320,
+    "width": 320
+  },
+  {
+    "page": "/account/help",
+    "scrollWidth": 390,
+    "width": 390
+  },
+  {
+    "page": "/account/help",
+    "scrollWidth": 768,
+    "width": 768
+  },
+  {
+    "page": "/account/help",
+    "scrollWidth": 1024,
+    "width": 1024
+  },
+  {
+    "page": "/account/help",
+    "scrollWidth": 1440,
+    "width": 1440
+  },
+  {
+    "page": "/login",
+    "scrollWidth": 320,
+    "width": 320
+  },
+  {
+    "page": "/login",
+    "scrollWidth": 390,
+    "width": 390
+  },
+  {
+    "page": "/login",
+    "scrollWidth": 768,
+    "width": 768
+  },
+  {
+    "page": "/login",
+    "scrollWidth": 1024,
+    "width": 1024
+  },
+  {
+    "page": "/login",
+    "scrollWidth": 1440,
+    "width": 1440
+  }
+]

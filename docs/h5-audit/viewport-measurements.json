@@ -1,0 +1,898 @@
+[
+  {
+    "label": "favorites",
+    "w": 320,
+    "h": 740,
+    "client": 320,
+    "grid": null,
+    "inputs": [
+      {
+        "font": "11px",
+        "label": "搜索商品",
+        "width": 206
+      }
+    ],
+    "main": 320,
+    "scroll": 320,
+    "url": "/favorites"
+  },
+  {
+    "label": "favorites",
+    "w": 390,
+    "h": 844,
+    "client": 390,
+    "grid": null,
+    "inputs": [
+      {
+        "font": "11px",
+        "label": "搜索商品",
+        "width": 276
+      }
+    ],
+    "main": 390,
+    "scroll": 390,
+    "url": "/favorites"
+  },
+  {
+    "label": "favorites",
+    "w": 768,
+    "h": 1024,
+    "client": 768,
+    "grid": null,
+    "inputs": [
+      {
+        "font": "12px",
+        "label": "搜索商品",
+        "width": 204
+      }
+    ],
+    "main": 768,
+    "scroll": 768,
+    "url": "/favorites"
+  },
+  {
+    "label": "favorites",
+    "w": 1024,
+    "h": 768,
+    "client": 1024,
+    "grid": null,
+    "inputs": [
+      {
+        "font": "12px",
+        "label": "搜索商品",
+        "width": 306
+      }
+    ],
+    "main": 1024,
+    "scroll": 1024,
+    "url": "/favorites"
+  },
+  {
+    "label": "cart-anonymous",
+    "w": 320,
+    "h": 740,
+    "client": 320,
+    "grid": null,
+    "inputs": [
+      {
+        "font": "11px",
+        "label": "搜索商品",
+        "width": 206
+      }
+    ],
+    "main": 320,
+    "scroll": 320,
+    "url": "/cart"
+  },
+  {
+    "label": "cart-anonymous",
+    "w": 390,
+    "h": 844,
+    "client": 390,
+    "grid": null,
+    "inputs": [
+      {
+        "font": "11px",
+        "label": "搜索商品",
+        "width": 276
+      }
+    ],
+    "main": 390,
+    "scroll": 390,
+    "url": "/cart"
+  },
+  {
+    "label": "cart-anonymous",
+    "w": 768,
+    "h": 1024,
+    "client": 768,
+    "grid": null,
+    "inputs": [
+      {
+        "font": "12px",
+        "label": "搜索商品",
+        "width": 204
+      }
+    ],
+    "main": 768,
+    "scroll": 768,
+    "url": "/cart"
+  },
+  {
+    "label": "cart-anonymous",
+    "w": 1024,
+    "h": 768,
+    "client": 1024,
+    "grid": null,
+    "inputs": [
+      {
+        "font": "12px",
+        "label": "搜索商品",
+        "width": 306
+      }
+    ],
+    "main": 1024,
+    "scroll": 1024,
+    "url": "/cart"
+  },
+  {
+    "label": "checkout-anonymous",
+    "w": 320,
+    "h": 740,
+    "client": 320,
+    "grid": null,
+    "inputs": [
+      {
+        "font": "11px",
+        "label": "搜索商品",
+        "width": 206
+      }
+    ],
+    "main": 320,
+    "scroll": 320,
+    "url": "/checkout"
+  },
+  {
+    "label": "checkout-anonymous",
+    "w": 390,
+    "h": 844,
+    "client": 390,
+    "grid": null,
+    "inputs": [
+      {
+        "font": "11px",
+        "label": "搜索商品",
+        "width": 276
+      }
+    ],
+    "main": 390,
+    "scroll": 390,
+    "url": "/checkout"
+  },
+  {
+    "label": "checkout-anonymous",
+    "w": 768,
+    "h": 1024,
+    "client": 768,
+    "grid": null,
+    "inputs": [
+      {
+        "font": "12px",
+        "label": "搜索商品",
+        "width": 204
+      }
+    ],
+    "main": 768,
+    "scroll": 768,
+    "url": "/checkout"
+  },
+  {
+    "label": "checkout-anonymous",
+    "w": 1024,
+    "h": 768,
+    "client": 1024,
+    "grid": null,
+    "inputs": [
+      {
+        "font": "12px",
+        "label": "搜索商品",
+        "width": 306
+      }
+    ],
+    "main": 1024,
+    "scroll": 1024,
+    "url": "/checkout"
+  },
+  {
+    "label": "login",
+    "w": 320,
+    "h": 740,
+    "client": 320,
+    "grid": null,
+    "inputs": [
+      {
+        "font": "11px",
+        "label": "搜索商品",
+        "width": 206
+      },
+      {
+        "font": "14px",
+        "label": "邮箱",
+        "width": 173
+      },
+      {
+        "font": "14px",
+        "label": "密码",
+        "width": 173
+      }
+    ],
+    "main": 320,
+    "scroll": 320,
+    "url": "/login"
+  },
+  {
+    "label": "login",
+    "w": 390,
+    "h": 844,
+    "client": 390,
+    "grid": null,
+    "inputs": [
+      {
+        "font": "11px",
+        "label": "搜索商品",
+        "width": 276
+      },
+      {
+        "font": "14px",
+        "label": "邮箱",
+        "width": 173
+      },
+      {
+        "font": "14px",
+        "label": "密码",
+        "width": 173
+      }
+    ],
+    "main": 390,
+    "scroll": 390,
+    "url": "/login"
+  },
+  {
+    "label": "login",
+    "w": 768,
+    "h": 1024,
+    "client": 768,
+    "grid": null,
+    "inputs": [
+      {
+        "font": "12px",
+        "label": "搜索商品",
+        "width": 204
+      },
+      {
+        "font": "14px",
+        "label": "邮箱",
+        "width": 173
+      },
+      {
+        "font": "14px",
+        "label": "密码",
+        "width": 173
+      }
+    ],
+    "main": 768,
+    "scroll": 768,
+    "url": "/login"
+  },
+  {
+    "label": "login",
+    "w": 1024,
+    "h": 768,
+    "client": 1024,
+    "grid": null,
+    "inputs": [
+      {
+        "font": "12px",
+        "label": "搜索商品",
+        "width": 306
+      },
+      {
+        "font": "14px",
+        "label": "邮箱",
+        "width": 173
+      },
+      {
+        "font": "14px",
+        "label": "密码",
+        "width": 173
+      }
+    ],
+    "main": 1024,
+    "scroll": 1024,
+    "url": "/login"
+  },
+  {
+    "label": "register",
+    "w": 320,
+    "h": 740,
+    "client": 320,
+    "grid": null,
+    "inputs": [
+      {
+        "font": "11px",
+        "label": "搜索商品",
+        "width": 206
+      },
+      {
+        "font": "14px",
+        "label": "姓氏",
+        "width": 173
+      },
+      {
+        "font": "14px",
+        "label": "名字",
+        "width": 173
+      },
+      {
+        "font": "14px",
+        "label": "邮箱",
+        "width": 173
+      },
+      {
+        "font": "14px",
+        "label": "密码",
+        "width": 173
+      }
+    ],
+    "main": 320,
+    "scroll": 320,
+    "url": "/login"
+  },
+  {
+    "label": "register",
+    "w": 768,
+    "h": 1024,
+    "client": 768,
+    "grid": null,
+    "inputs": [
+      {
+        "font": "12px",
+        "label": "搜索商品",
+        "width": 204
+      },
+      {
+        "font": "14px",
+        "label": "姓氏",
+        "width": 173
+      },
+      {
+        "font": "14px",
+        "label": "名字",
+        "width": 173
+      },
+      {
+        "font": "14px",
+        "label": "邮箱",
+        "width": 173
+      },
+      {
+        "font": "14px",
+        "label": "密码",
+        "width": 173
+      }
+    ],
+    "main": 768,
+    "scroll": 768,
+    "url": "/login"
+  },
+  {
+    "label": "home",
+    "w": 320,
+    "h": 740,
+    "client": 320,
+    "grid": "135px 135px",
+    "inputs": [
+      {
+        "font": "11px",
+        "label": "搜索商品",
+        "width": 206
+      }
+    ],
+    "main": 320,
+    "scroll": 320,
+    "url": "/"
+  },
+  {
+    "label": "home",
+    "w": 375,
+    "h": 812,
+    "client": 375,
+    "grid": "162.5px 162.5px",
+    "inputs": [
+      {
+        "font": "11px",
+        "label": "搜索商品",
+        "width": 261
+      }
+    ],
+    "main": 375,
+    "scroll": 375,
+    "url": "/"
+  },
+  {
+    "label": "home",
+    "w": 390,
+    "h": 844,
+    "client": 390,
+    "grid": "170px 170px",
+    "inputs": [
+      {
+        "font": "11px",
+        "label": "搜索商品",
+        "width": 276
+      }
+    ],
+    "main": 390,
+    "scroll": 390,
+    "url": "/"
+  },
+  {
+    "label": "home",
+    "w": 430,
+    "h": 932,
+    "client": 430,
+    "grid": "190px 190px",
+    "inputs": [
+      {
+        "font": "11px",
+        "label": "搜索商品",
+        "width": 316
+      }
+    ],
+    "main": 430,
+    "scroll": 430,
+    "url": "/"
+  },
+  {
+    "label": "home",
+    "w": 760,
+    "h": 1024,
+    "client": 760,
+    "grid": "355px 355px",
+    "inputs": [
+      {
+        "font": "11px",
+        "label": "搜索商品",
+        "width": 646
+      }
+    ],
+    "main": 760,
+    "scroll": 760,
+    "url": "/"
+  },
+  {
+    "label": "home",
+    "w": 761,
+    "h": 1024,
+    "client": 761,
+    "grid": "164.75px 164.75px 164.75px 164.75px",
+    "inputs": [
+      {
+        "font": "12px",
+        "label": "搜索商品",
+        "width": 201
+      }
+    ],
+    "main": 761,
+    "scroll": 761,
+    "url": "/"
+  },
+  {
+    "label": "home",
+    "w": 768,
+    "h": 1024,
+    "client": 768,
+    "grid": "166.5px 166.5px 166.5px 166.5px",
+    "inputs": [
+      {
+        "font": "12px",
+        "label": "搜索商品",
+        "width": 204
+      }
+    ],
+    "main": 768,
+    "scroll": 768,
+    "url": "/"
+  },
+  {
+    "label": "home",
+    "w": 820,
+    "h": 1180,
+    "client": 820,
+    "grid": "179.5px 179.5px 179.5px 179.5px",
+    "inputs": [
+      {
+        "font": "12px",
+        "label": "搜索商品",
+        "width": 225
+      }
+    ],
+    "main": 820,
+    "scroll": 820,
+    "url": "/"
+  },
+  {
+    "label": "home",
+    "w": 1024,
+    "h": 768,
+    "client": 1024,
+    "grid": "230.5px 230.5px 230.5px 230.5px",
+    "inputs": [
+      {
+        "font": "12px",
+        "label": "搜索商品",
+        "width": 306
+      }
+    ],
+    "main": 1024,
+    "scroll": 1024,
+    "url": "/"
+  },
+  {
+    "label": "home",
+    "w": 1440,
+    "h": 900,
+    "client": 1440,
+    "grid": "300.5px 300.5px 300.5px 300.5px",
+    "inputs": [
+      {
+        "font": "12px",
+        "label": "搜索商品",
+        "width": 366
+      }
+    ],
+    "main": 1440,
+    "scroll": 1440,
+    "url": "/"
+  },
+  {
+    "label": "catalog",
+    "w": 320,
+    "h": 740,
+    "client": 320,
+    "grid": "135px 135px",
+    "inputs": [
+      {
+        "font": "11px",
+        "label": "搜索商品",
+        "width": 206
+      }
+    ],
+    "main": 320,
+    "scroll": 320,
+    "url": "/products"
+  },
+  {
+    "label": "catalog",
+    "w": 375,
+    "h": 812,
+    "client": 375,
+    "grid": "162.5px 162.5px",
+    "inputs": [
+      {
+        "font": "11px",
+        "label": "搜索商品",
+        "width": 261
+      }
+    ],
+    "main": 375,
+    "scroll": 375,
+    "url": "/products"
+  },
+  {
+    "label": "catalog",
+    "w": 390,
+    "h": 844,
+    "client": 390,
+    "grid": "170px 170px",
+    "inputs": [
+      {
+        "font": "11px",
+        "label": "搜索商品",
+        "width": 276
+      }
+    ],
+    "main": 390,
+    "scroll": 390,
+    "url": "/products"
+  },
+  {
+    "label": "catalog",
+    "w": 430,
+    "h": 932,
+    "client": 430,
+    "grid": "190px 190px",
+    "inputs": [
+      {
+        "font": "11px",
+        "label": "搜索商品",
+        "width": 316
+      }
+    ],
+    "main": 430,
+    "scroll": 430,
+    "url": "/products"
+  },
+  {
+    "label": "catalog",
+    "w": 760,
+    "h": 1024,
+    "client": 760,
+    "grid": "355px 355px",
+    "inputs": [
+      {
+        "font": "11px",
+        "label": "搜索商品",
+        "width": 646
+      }
+    ],
+    "main": 760,
+    "scroll": 760,
+    "url": "/products"
+  },
+  {
+    "label": "catalog",
+    "w": 761,
+    "h": 1024,
+    "client": 761,
+    "grid": "164.328px 164.336px 164.328px",
+    "inputs": [
+      {
+        "font": "12px",
+        "label": "搜索商品",
+        "width": 201
+      }
+    ],
+    "main": 761,
+    "scroll": 761,
+    "url": "/products"
+  },
+  {
+    "label": "catalog",
+    "w": 768,
+    "h": 1024,
+    "client": 768,
+    "grid": "166.664px 166.664px 166.672px",
+    "inputs": [
+      {
+        "font": "12px",
+        "label": "搜索商品",
+        "width": 204
+      }
+    ],
+    "main": 768,
+    "scroll": 768,
+    "url": "/products"
+  },
+  {
+    "label": "catalog",
+    "w": 820,
+    "h": 1180,
+    "client": 820,
+    "grid": "184px 184px 184px",
+    "inputs": [
+      {
+        "font": "12px",
+        "label": "搜索商品",
+        "width": 225
+      }
+    ],
+    "main": 820,
+    "scroll": 820,
+    "url": "/products"
+  },
+  {
+    "label": "catalog",
+    "w": 1024,
+    "h": 768,
+    "client": 1024,
+    "grid": "252px 252px 252px",
+    "inputs": [
+      {
+        "font": "12px",
+        "label": "搜索商品",
+        "width": 306
+      }
+    ],
+    "main": 1024,
+    "scroll": 1024,
+    "url": "/products"
+  },
+  {
+    "label": "catalog",
+    "w": 1440,
+    "h": 900,
+    "client": 1440,
+    "grid": "338.664px 338.664px 338.664px",
+    "inputs": [
+      {
+        "font": "12px",
+        "label": "搜索商品",
+        "width": 366
+      }
+    ],
+    "main": 1440,
+    "scroll": 1440,
+    "url": "/products"
+  },
+  {
+    "label": "product",
+    "w": 320,
+    "h": 740,
+    "client": 320,
+    "grid": "135px 135px",
+    "inputs": [
+      {
+        "font": "11px",
+        "label": "搜索商品",
+        "width": 206
+      }
+    ],
+    "main": 320,
+    "scroll": 320,
+    "url": "/products/tech-4981-collection"
+  },
+  {
+    "label": "product",
+    "w": 375,
+    "h": 812,
+    "client": 375,
+    "grid": "162.5px 162.5px",
+    "inputs": [
+      {
+        "font": "11px",
+        "label": "搜索商品",
+        "width": 261
+      }
+    ],
+    "main": 375,
+    "scroll": 375,
+    "url": "/products/tech-4981-collection"
+  },
+  {
+    "label": "product",
+    "w": 390,
+    "h": 844,
+    "client": 390,
+    "grid": "170px 170px",
+    "inputs": [
+      {
+        "font": "11px",
+        "label": "搜索商品",
+        "width": 276
+      }
+    ],
+    "main": 390,
+    "scroll": 390,
+    "url": "/products/tech-4981-collection"
+  },
+  {
+    "label": "product",
+    "w": 430,
+    "h": 932,
+    "client": 430,
+    "grid": "190px 190px",
+    "inputs": [
+      {
+        "font": "11px",
+        "label": "搜索商品",
+        "width": 316
+      }
+    ],
+    "main": 430,
+    "scroll": 430,
+    "url": "/products/tech-4981-collection"
+  },
+  {
+    "label": "product",
+    "w": 760,
+    "h": 1024,
+    "client": 760,
+    "grid": "355px 355px",
+    "inputs": [
+      {
+        "font": "11px",
+        "label": "搜索商品",
+        "width": 646
+      }
+    ],
+    "main": 760,
+    "scroll": 760,
+    "url": "/products/tech-4981-collection"
+  },
+  {
+    "label": "product",
+    "w": 761,
+    "h": 1024,
+    "client": 761,
+    "grid": "164.75px 164.75px 164.75px 164.75px",
+    "inputs": [
+      {
+        "font": "12px",
+        "label": "搜索商品",
+        "width": 201
+      }
+    ],
+    "main": 761,
+    "scroll": 761,
+    "url": "/products/tech-4981-collection"
+  },
+  {
+    "label": "product",
+    "w": 768,
+    "h": 1024,
+    "client": 768,
+    "grid": "166.5px 166.5px 166.5px 166.5px",
+    "inputs": [
+      {
+        "font": "12px",
+        "label": "搜索商品",
+        "width": 204
+      }
+    ],
+    "main": 768,
+    "scroll": 768,
+    "url": "/products/tech-4981-collection"
+  },
+  {
+    "label": "product",
+    "w": 820,
+    "h": 1180,
+    "client": 820,
+    "grid": "179.5px 179.5px 179.5px 179.5px",
+    "inputs": [
+      {
+        "font": "12px",
+        "label": "搜索商品",
+        "width": 225
+      }
+    ],
+    "main": 820,
+    "scroll": 820,
+    "url": "/products/tech-4981-collection"
+  },
+  {
+    "label": "product",
+    "w": 1024,
+    "h": 768,
+    "client": 1024,
+    "grid": "230.5px 230.5px 230.5px 230.5px",
+    "inputs": [
+      {
+        "font": "12px",
+        "label": "搜索商品",
+        "width": 306
+      }
+    ],
+    "main": 1024,
+    "scroll": 1024,
+    "url": "/products/tech-4981-collection"
+  },
+  {
+    "label": "product",
+    "w": 1440,
+    "h": 900,
+    "client": 1440,
+    "grid": "300.5px 300.5px 300.5px 300.5px",
+    "inputs": [
+      {
+        "font": "12px",
+        "label": "搜索商品",
+        "width": 366
+      }
+    ],
+    "main": 1440,
+    "scroll": 1440,
+    "url": "/products/tech-4981-collection"
+  }
+]

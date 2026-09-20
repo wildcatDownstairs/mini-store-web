@@ -1,5 +1,5 @@
 <script setup>
-import { computed, ref, watch } from "vue";
+import { computed, ref, watch, nextTick } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import { api, query as params } from "./api";
 import { product as adapt } from "./domain";
@@ -15,7 +15,8 @@ const route = useRoute(),
   shown = ref([]),
   total = ref(0),
   busy = ref(false),
-  error = ref("");
+  error = ref(""),
+  resultsHeading = ref(null);
 const favorites = computed(() => route.path === "/favorites"),
   category = computed(
     () =>
@@ -32,7 +33,7 @@ const favorites = computed(() => route.path === "/favorites"),
     ),
   );
 let revision = 0;
-async function load() {
+async function load(scrollToResults = false) {
   const rev = ++revision;
   busy.value = true;
   error.value = "";
@@ -101,7 +102,18 @@ async function load() {
       shown.value = [];
     }
   } finally {
-    if (rev === revision) busy.value = false;
+    if (rev === revision) {
+      busy.value = false;
+      if (scrollToResults === true && !error.value) {
+        await nextTick();
+        // 翻页成功后回到结果区；焦点同步，键盘和读屏用户也能从新结果继续。
+        resultsHeading.value?.focus({ preventScroll: true });
+        resultsHeading.value?.scrollIntoView({
+          block: "start",
+          behavior: "instant",
+        });
+      }
+    }
   }
 }
 watch(
@@ -111,7 +123,7 @@ watch(
     else load();
   },
 );
-watch(page, load);
+watch(page, () => load(true));
 load();
 function query(key, value) {
   router.replace({ query: { ...route.query, [key]: value || undefined } });
@@ -151,8 +163,11 @@ function reset() {
       </div>
       <span role="status" aria-live="polite">{{ total }} 件好物</span>
     </div>
-    <div class="catalog-layout">
-      <aside class="filters">
+    <div
+      class="catalog-layout"
+      :class="{ 'catalog-empty-favorites': favorites && !state.favorites.length }"
+    >
+      <aside v-if="!favorites || state.favorites.length" class="filters">
         <h2>商品分类</h2>
         <button
           v-for="c in [
@@ -167,6 +182,7 @@ function reset() {
         </button>
         <StoreSelect
           v-model="brand"
+          searchable
           label="品牌"
           :options="[
             { value: '', label: '所有品牌' },
@@ -179,7 +195,13 @@ function reset() {
         <div class="filter-note">选一件喜欢的，<br />就能让今天不同。</div>
       </aside>
       <div>
-        <div class="list-toolbar">
+        <div
+          ref="resultsHeading"
+          class="list-toolbar"
+          tabindex="-1"
+          role="region"
+          aria-label="商品查询结果"
+        >
           <span
             >{{ category }}
             <button v-if="keyword" class="text-button" @click="query('q', '')">
@@ -189,6 +211,7 @@ function reset() {
           <StoreSelect
             :model-value="sort"
             @update:model-value="query('sort', $event)"
+            v-if="!favorites || state.favorites.length"
             label="排序"
             inline
             :options="[
@@ -224,16 +247,24 @@ function reset() {
           </button>
         </div>
         <nav v-if="pages > 1" class="pagination" aria-label="商品分页">
-          <button :disabled="page === 1" @click="page--">上一页</button
+          <button :disabled="busy || page === 1" @click="page--">上一页</button
           ><button
             v-for="n in numbers"
             :key="n"
+            class="page-number"
+            :disabled="busy"
             :aria-current="page === n ? 'page' : undefined"
             :class="{ active: page === n }"
             @click="page = n"
           >
             {{ n }}</button
-          ><button :disabled="page === pages" @click="page++">下一页</button>
+          >
+          <span class="pagination-status" role="status">
+            {{ page }} / {{ pages }}
+          </span>
+          <button :disabled="busy || page === pages" @click="page++">
+            下一页
+          </button>
         </nav>
       </div>
     </div>
